@@ -40,19 +40,19 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto ">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger text" href="#services">Services</a>
+                        <a class="nav-link js-scroll-trigger text" href="#services"><?php echo  $res1['primero']?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger text" href="#portfolio">Portfolio</a>
+                        <a class="nav-link js-scroll-trigger text" href="#portfolio"><?php echo  $res1['segundo']?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger text" href="#about">About</a>
+                        <a class="nav-link js-scroll-trigger text" href="#about"><?php echo  $res1['tercero']?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger text" href="#team">Team</a>
+                        <a class="nav-link js-scroll-trigger text" href="#team"><?php echo  $res1['cuarto']?></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link js-scroll-trigger text" href="#contact">Contact</a>
+                        <a class="nav-link js-scroll-trigger text" href="#contact"><?php echo  $res1['quinto']?></a>
                     </li>
                 </ul>
             </div>

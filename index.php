@@ -1,5 +1,23 @@
 <?php
  require 'php/header.php';
+ try {
+ $conexion = new PDO('mysql:host=localhost;dbname=franweb','root', '' );
+ $conexion->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+ $conexion->exec('SET CHARACTER SET utf8');
+
+ } catch (Exception $e) {
+   echo "EL ERROR ESTA EN LA LINEA" .$e->getLine();
+    }
+
+$sql1 = $conexion->prepare('SELECT * FROM menu');
+$sql1->execute();
+$res1=$sql1->fetch();
+
+// pagina 1
+
+$pagina1 = $conexion->prepare('SELECT * FROM pagina1');
+$pagina1->execute();
+$pagi1=$pagina1->fetch();
 ?>
 
 
@@ -24,8 +42,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading text-uppercase">Services</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase"><?php echo $res1['primero'] ?></h2>
+                    <h3 class="section-subheading text-muted"><?php echo $pagi1['subtitulo'] ?></h3>
                 </div>
             </div>
             <div class="row text-center">
@@ -34,24 +52,24 @@
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
             <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
           </span>
-                    <h4 class="service-heading">E-Commerce</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="service-heading"><?php echo $pagi1['titulo1'] ?></h4>
+                    <p class="text-muted"><?php echo $pagi1['desc1'] ?></p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
             <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
           </span>
-                    <h4 class="service-heading">Responsive Design</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="service-heading"><?php echo $pagi1['titulo2'] ?></h4>
+                    <p class="text-muted"><?php echo $pagi1['desc2'] ?></p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
             <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
           </span>
-                    <h4 class="service-heading">Web Security</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="service-heading"><?php echo $pagi1['titulo3'] ?></h4>
+                    <p class="text-muted"><?php echo $pagi1['desc3'] ?></p>
                 </div>
             </div>
         </div>
@@ -62,7 +80,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading text-uppercase">Portfolio</h2>
+                    <h2 class="section-heading text-uppercase"><?php echo $res1['segundo'] ?></h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
             </div>
@@ -160,7 +178,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading text-uppercase">About</h2>
+                    <h2 class="section-heading text-uppercase"><?php echo $res1['tercero'] ?></h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
             </div>
@@ -241,7 +259,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+                    <h2 class="section-heading text-uppercase"><?php echo $res1['cuarto'] ?></h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
             </div>
@@ -360,7 +378,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading text-uppercase">Contact Us</h2>
+                    <h2 class="section-heading text-uppercase"><?php echo $res1['quinto'] ?></h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
             </div>
