@@ -8,6 +8,14 @@ body {
     overflow-x: hidden;
     font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
+.foto{
+  width: 400px!important;
+  height: 263px!important;
+}
+.fotoDesc{
+  width: 600px!important;
+  height: 563px!important;
+}
 
 p {
     line-height: 1.75;

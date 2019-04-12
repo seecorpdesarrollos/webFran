@@ -25,6 +25,8 @@
     <link href="css/agency.css" rel="stylesheet">
     <!-- favicon -->
     <link rel="shortcut icon" href="img/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 </head>
 
 <body id="page-top">
@@ -53,6 +55,9 @@
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link js-scroll-trigger text" href="#contact"><?php echo  $res1['quinto']?></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link js-scroll-trigger text" target="_blank" href="https://www.instagram.com/explore/locations/141728275975755/twittink?hl=es-la"> <i class="fab fa-instagram"></i></a>
                     </li>
                 </ul>
             </div>
