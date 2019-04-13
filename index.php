@@ -97,7 +97,7 @@ foreach ($pagi2 as $key ) {
             <div class="row">
               <?php foreach ($pagi2 as $key ): ?>
                 <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#<?php echo $key['subtitulo'] ?>">
+                    <a class="portfolio-link" data-toggle="modal" href="#id<?php echo $key['id'] ?>">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fas fa-plus fa-3x"></i>
@@ -366,40 +366,57 @@ foreach ($pagi2 as $key ) {
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2019</span>
+                    <span class="copyright">Copyright &copy; twittink.com <?php echo date('Y'); ?></span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
                         <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
+                            <a href="https://www.instagram.com/explore/locations/141728275975755/twittink?hl=es-la" target="_blank">
+                                <i class="fab fa-instagram"></i>
                             </a>
                         </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </li>
+
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
                         <li class="list-inline-item">
-                            <a href="#">Privacy Policy</a>
+                            <a href="privacidad.html" target="_blank">Termes i condicions</a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#">Terms of Use</a>
+                            <a href="aviso.html" target="_blank">Avís Legal</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
+    <!--Código HTML de la política de cookies -->
+
+<!--La URL incluida es la parte que se ha de modificar -->
+
+<div class="cookiesms" id="cookie1">
+  Aquest web utilitza cookies, pots veure la nostra  <a href="cookies.html" target="_blank">la política de cookies, aquí</a>
+  Si continues navegant estàs acceptant-
+<button onclick="controlcookies()">Aceptar</button>
+<div  class="cookies2" onmouseover="document.getElementById('cookie1').style.bottom = '0px';">Política de cookies + </div>
+</div>
+<script type="text/javascript">
+if (localStorage.controlcookie>0){
+document.getElementById('cookie1').style.bottom = '-50px';
+}
+</script>
+
+<script type="text/javascript">
+function controlcookies() {
+         // si variable no existe se crea (al clicar en Aceptar)
+    localStorage.controlcookie = (localStorage.controlcookie || 0);
+
+    localStorage.controlcookie++; // incrementamos cuenta de la cookie
+    cookie1.style.display='none'; // Esconde la política de cookies
+}
+</script>
+<!-- Fin del código de cookies --->
 
     <!-- Portfolio Modals -->
 
@@ -407,7 +424,7 @@ foreach ($pagi2 as $key ) {
 
     <?php foreach ($pagi2 as  $value): ?>
       <!-- Modal para todas las fotos -->
-      <div class="portfolio-modal modal fade" id="<?php echo $value['subtitulo'] ?>" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="portfolio-modal modal fade" id="id<?php echo $value['id'] ?>" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog">
               <div class="modal-content">
                   <div class="close-modal" data-dismiss="modal">
@@ -423,7 +440,7 @@ foreach ($pagi2 as $key ) {
                                   <h2 class="text-uppercase"><?php echo $value['tituloFoto'] ?></h2>
                                   <p class="item-intro text-muted"><?php echo $value['subtitulofoto'] ?></p>
                                   <img class="img-fluid d-block mx-auto fotoDesc" src="<?php echo $value['foto'] ?>" alt="ruta foto">
-                                  <p><?php echo $value['descfoto'] ?>/p>
+                                  <p><?php echo $value['descfoto'] ?></p>
                                   <ul class="list-inline">
                                       <!-- <li>Date: January 2017</li>
                                       <li>Client: Explore</li>
