@@ -29,6 +29,8 @@
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
   <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
 
+      <meta name="google-site-verification" content="v-WCZWVdwpe4nnxoK1Gr7qTi2nvz3UIE9NWYwnSe89Q" />
+      <meta name="keywords" content="twittink, serveis informatics, tienda informatica, botiga informatica, informatica, serveis informatics olot, reparació, windows, office, oficina, portatils, portatiles, ordinadors, ordenadores, servidores, servidors, software, hardware, tintas, tintes, wifi, red, xarxa, mobils, movils, botiga olot, informatica olot, apple, macbook pro, apple olot, apple garrotxa, botiga apple olot, tienda apple olot, server, dell, asus, hp, msi, fujitsu, razer, gaming, gaming olot, botiga gaming, tienda gaming, posicionament, SEO, SEM" />
 </head>
 
 

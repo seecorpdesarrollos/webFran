@@ -1,5 +1,7 @@
 <?php
  require 'php/header.php';
+ require 'email.php';
+
  try {
  $conexion = new PDO('mysql:host=localhost;dbname=franweb','root', '' );
  $conexion->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
@@ -27,6 +29,48 @@ $pagi2=$pagina2->fetchAll();
 foreach ($pagi2 as $key ) {
  $subtitulo = $key['subtitulo'];
 }
+
+// pagina 3 pa el subtitulo
+
+$pagina3 = $conexion->prepare('SELECT * FROM pagina3');
+$pagina3->execute();
+$pagi3=$pagina3->fetch();
+ $subtitulo3 = $pagi3['subtitulo'];
+
+// primer elemento
+ $primerElemento = $conexion->prepare('SELECT * FROM pagina3  WHERE id = 1');
+ $primerElemento->execute();
+ $elemento1=$primerElemento->fetch();
+
+ // segundo elemento
+  $segundoElemento = $conexion->prepare('SELECT * FROM pagina3  WHERE id = 2');
+  $segundoElemento->execute();
+  $elemento2=$segundoElemento->fetch();
+
+  // tercero elemento
+   $tercerElemento = $conexion->prepare('SELECT * FROM pagina3  WHERE id = 3');
+   $tercerElemento->execute();
+   $elemento3=$tercerElemento->fetch();
+
+   // cuarto elemento
+    $cuartoElemento = $conexion->prepare('SELECT * FROM pagina3  WHERE id = 4');
+    $cuartoElemento->execute();
+    $elemento4=$cuartoElemento->fetch();
+
+
+    // pagina 4 pa el subtitulo
+
+    $pagina4 = $conexion->prepare('SELECT * FROM pagina4');
+    $pagina4->execute();
+    $pagi4=$pagina4->fetch();
+    $subtitulo4 = $pagi4['subtitulo'];
+    $desc4 = $pagi4['desc1'];
+
+    // toda la página
+    $paginaTotal = $conexion->prepare('SELECT * FROM pagina4');
+    $paginaTotal->execute();
+    $paginas4=$paginaTotal->fetchAll();
+
 ?>
 
 
@@ -116,13 +160,13 @@ foreach ($pagi2 as $key ) {
         </div>
     </section>
 
-    <!-- About -->
+    <!-- Pagina de  Nosotros -->
     <section id="about">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading text-uppercase"><?php echo $res1['tercero'] ?></h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted"><?php echo $subtitulo3; ?></h3>
                 </div>
             </div>
             <div class="row">
@@ -130,65 +174,65 @@ foreach ($pagi2 as $key ) {
                     <ul class="timeline">
                         <li>
                             <div class="timeline-image">
-                                <img class="rounded-circle img-fluid" src="img/about/1.jpg" alt="">
+                                <img class="rounded-circle img-fluid" src="<?php echo $elemento1['foto']; ?>" alt="primero">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>2009-2011</h4>
-                                    <h4 class="subheading">Our Humble Beginnings</h4>
+                                    <h4><?php echo $elemento1['titulo1']; ?></h4>
+                                    <h4 class="subheading"><?php echo $elemento1['titulo2']; ?></h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted"><?php echo $elemento1['descFoto']; ?></p>
                                 </div>
                             </div>
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <img class="rounded-circle img-fluid" src="img/about/2.jpg" alt="">
+                                <img class="rounded-circle img-fluid" src="<?php echo $elemento2['foto']; ?>" alt="foto 2">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>March 2011</h4>
-                                    <h4 class="subheading">An Agency is Born</h4>
+                                    <h4><?php echo $elemento2['titulo1']; ?></h4>
+                                    <h4 class="subheading"><?php echo $elemento2['titulo2']; ?></h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted"><?php echo $elemento2['descFoto']; ?></p>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="timeline-image">
-                                <img class="rounded-circle img-fluid" src="img/about/3.jpg" alt="">
+                                <img class="rounded-circle img-fluid" src="<?php echo $elemento3['foto'] ;?>" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>December 2012</h4>
-                                    <h4 class="subheading">Transition to Full Service</h4>
+                                    <h4><?php echo $elemento3['titulo1'] ;?></h4>
+                                    <h4 class="subheading"><?php echo $elemento3['titulo2'] ;?></h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted"><?php echo $elemento3['descFoto'] ;?></p>
                                 </div>
                             </div>
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <img class="rounded-circle img-fluid" src="img/about/4.jpg" alt="">
+                                <img class="rounded-circle img-fluid" src="<?php echo $elemento4['foto'] ;?>" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>July 2014</h4>
-                                    <h4 class="subheading">Phase Two Expansion</h4>
+                                    <h4><?php echo $elemento4['titulo1'] ;?></h4>
+                                    <h4 class="subheading"><?php echo $elemento4['titulo2'] ;?></h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted"><?php echo $elemento4['descFoto'] ;?></p>
                                 </div>
                             </div>
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <h4>Be Part
-                                    <br>Of Our
-                                    <br>Story!</h4>
+                                <h4>Es parteix
+                                    <br>De la
+                                    <br>nostra història</h4>
                             </div>
                         </li>
                     </ul>
@@ -203,16 +247,17 @@ foreach ($pagi2 as $key ) {
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading text-uppercase"><?php echo $res1['cuarto'] ?></h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted"><?php echo $subtitulo4; ?></h3>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
+              <?php foreach ($paginas4 as $equipo): ?>
+                <div class="col-sm-6">
                     <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="img/team/1.jpg" alt="">
-                        <h4>Kay Garland</h4>
-                        <p class="text-muted">Lead Designer</p>
-                        <ul class="list-inline social-buttons">
+                        <img class="mx-auto rounded-circle" src="<?php echo $equipo['foto'] ;?>" alt="">
+                        <h4><?php echo $equipo['nombre'] ?></h4>
+                        <p class="text-muted"><?php echo $equipo['cargo'] ?></p>
+                        <!-- <ul class="list-inline social-buttons">
                             <li class="list-inline-item">
                                 <a href="#">
                                     <i class="fab fa-twitter"></i>
@@ -228,61 +273,15 @@ foreach ($pagi2 as $key ) {
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="img/team/2.jpg" alt="">
-                        <h4>Larry Parker</h4>
-                        <p class="text-muted">Lead Marketer</p>
-                        <ul class="list-inline social-buttons">
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="">
-                        <h4>Diana Pertersen</h4>
-                        <p class="text-muted">Lead Developer</p>
-                        <ul class="list-inline social-buttons">
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+              <?php endforeach; ?>
+
             </div>
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                    <p class="large text-muted"> <?php echo $desc4; ?></p>
                 </div>
             </div>
         </div>
@@ -292,24 +291,32 @@ foreach ($pagi2 as $key ) {
     <section class="py-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-2 col-sm-6">
                     <a href="#">
-                        <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">
+                        <img class="img-fluid d-block mx-auto" src="img/logos/logo1.jpg" height="150" alt="">
                     </a>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-2 col-sm-6">
                     <a href="#">
-                        <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">
+                        <img class="img-fluid d-block mx-auto" src="img/logos/logo2.jpg" alt="">
                     </a>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">
-                    </a>
+                <div class="col-md-4 col-sm-6">
+               <div class="alert alert-info text-center" role="alert">
+              <strong>  Horari de la botiga!</strong>
+                 <br>
+              De dilluns a divendres de <br>
+              09:30 a 13:30 i de 16:30 a 20:00.
+              <br>
+              Dissabte de 10:00 a 13:30
+              <br>
+              Tel: 972 26 24 25
+                 </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">
+
+               <div class="col-md-4 col-sm-6">
+              &nbsp;&nbsp;&nbsp;&nbsp;      <a class="btn btn-outline-danger" href="https://www.google.com/search?hl=es-419&gl=es&q=TWITTINK,+Carrer+Sant+Ferriol,+3,+17800+Olot,+Girona&ludocid=4508519168770684045#lrd=0x12bacaef260dcff1:0x3e917a4bfd9db48d,3" target="_blank">
+                      Deixa'ns una ressenya a Google
                     </a>
                 </div>
             </div>
@@ -322,37 +329,37 @@ foreach ($pagi2 as $key ) {
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading text-uppercase"><?php echo $res1['quinto'] ?></h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted"></h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                    <form id="contactForm" action="email.php" method="post" name="sentMessage" novalidate="novalidate">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
+                                    <input class="form-control" name="nombre" id="name" type="text" placeholder="El teu nom *" required="required" data-validation-required-message="Please enter your name.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
+                                    <input class="form-control" name="email" id="email" type="email" placeholder="El teu correu *" required="required" data-validation-required-message="Please enter your email address.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number.">
+                                    <input class="form-control" name="tel" id="phone" type="tel" placeholder="El teu Tel. *" required="required" data-validation-required-message="Please enter your phone number.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
+                                    <textarea class="form-control" name="mensaje" id="message" placeholder="El teu missatge *" required="required" data-validation-required-message="Please enter a message."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                                <button id="sendMessageButton" name="enviarCorreo" class="btn btn-primary btn-xl text-uppercase" type="submit">Enviar  Missatge</button>
                             </div>
                         </div>
                     </form>
@@ -398,7 +405,7 @@ foreach ($pagi2 as $key ) {
 <div class="cookiesms" id="cookie1">
   Aquest web utilitza cookies, pots veure la nostra  <a href="cookies.html" target="_blank">la política de cookies, aquí</a>
   Si continues navegant estàs acceptant-
-<button onclick="controlcookies()">Aceptar</button>
+<button class="btn btn-outline-primary" onclick="controlcookies()">Aceptar</button>
 <div  class="cookies2" onmouseover="document.getElementById('cookie1').style.bottom = '0px';">Política de cookies + </div>
 </div>
 <script type="text/javascript">
